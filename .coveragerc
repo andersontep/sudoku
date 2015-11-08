@@ -1,0 +1,10 @@
+[run]
+branch = True
+include = sudoku/*
+omit = */settings/*
+
+[report]
+show_missing = True
+
+[html]
+title = 'Sudoku Coverage'
