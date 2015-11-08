@@ -10,19 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import environ
+root = environ.Path(__file__) - 3  # 3 folders back
+env = environ.Env(DEBUG=(bool, False), )
+environ.Env.read_env()  # read the .env file to load into os.environ
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+SITE_ROOT = root()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'j4-d71c%p+9(2$@5-h@=oomu5e(y^@-2j0wu9*37k%3w776lp8'
+SECRET_KEY = env('SECRET_KEY', default="shhhh")
 
 ALLOWED_HOSTS = []
+DEBUG = env('DEBUG')
 
 
 # Application definition
@@ -43,6 +45,7 @@ THIRD_PARTY_APPS = (
 # Apps specific for this project go here.
 LOCAL_APPS = (
     # Your stuff: custom apps go here
+    'sudoku.blog',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -84,10 +87,7 @@ WSGI_APPLICATION = 'sudoku.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': env.db(),
 }
 
 
