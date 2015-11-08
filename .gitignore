@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+
+# Test output files / cache
+.cache/
+.coverage
+.coverage.*
+.tox
+coverage.xml
+junit*.xml
