@@ -11,5 +11,5 @@ test:
   override:
     - tox
   post:
-    - mv coverage.html $CIRCLE_ARTIFACTS
+    - mv htmlcov $CIRCLE_ARTIFACTS
 
