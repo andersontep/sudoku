@@ -12,4 +12,5 @@ test:
     - tox
   post:
     - mv htmlcov $CIRCLE_ARTIFACTS
+    - mv results.xml $CIRCLE_TEST_REPORTS
 
