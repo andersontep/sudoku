@@ -1,0 +1,12 @@
+machine:
+  python:
+    version: 3.4
+
+test:
+  pre:
+    - pip install tox
+  override:
+    - tox
+  post:
+    - mv coverage.html $CIRCLE_ARTIFACTS
+
