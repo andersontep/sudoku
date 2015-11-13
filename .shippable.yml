@@ -1,0 +1,25 @@
+language: python
+
+python:
+  - "3.4"
+
+services:
+  - postgresql
+
+addons:
+  postgresql: "9.3"
+
+env:
+  - DATABASE_URL=postgres://postgres@localhost/test
+
+install:
+  - pip install tox
+  - pip install codecov
+
+before_script:
+  - psql -c 'create database test;' -U postgres
+
+script: tox
+
+after_success:
+  - codecov
