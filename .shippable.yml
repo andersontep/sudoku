@@ -25,3 +25,7 @@ script: tox
 
 after_success:
   - mv coverage.xml shippable/codecoverage
+  - mv coverage.html shippable/codecoverage
+  - mv results.xml shippable/testresults
+
+
