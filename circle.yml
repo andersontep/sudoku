@@ -21,11 +21,11 @@ deployment:
     codedeploy:
       sudoku:
         application_root: /
-        revision_type: S3
         revision_location:
-            s3_location:
-              bucket: at-sudoku
-              key_pattern: codedeploy-sudoku-{BRANCH}-{SHORT_COMMIT}
+          revision_type: S3
+          s3_location:
+            bucket: at-sudoku
+            key_pattern: codedeploy-sudoku-{BRANCH}-{SHORT_COMMIT}
         region: us-east-1
         deployment_group: production-sudoku
         deployment_config: CodeDeployDefault.AllAtOnce
