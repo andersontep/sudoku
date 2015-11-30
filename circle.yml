@@ -13,4 +13,19 @@ test:
   post:
     - mv htmlcov $CIRCLE_ARTIFACTS
     - mv results.xml $CIRCLE_TEST_REPORTS
+    - touch fromcircle.txt
 
+deployment:
+  production:
+    branch: master
+    codedeploy:
+      sudoku:
+        application_root: /
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: at-sudoku
+            key_pattern: codedeploy-sudoku-{BRANCH}-{SHORT_COMMIT}
+        region: us-east-1
+        deployment_group: production-sudoku
+        deployment_config: CodeDeployDefault.AllAtOnce

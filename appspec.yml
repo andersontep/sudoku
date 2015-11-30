@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/sudoku
+  - source: /deployment/etc/init
+    destination: /etc/init
+hooks:
+  BeforeInstall:
+    - location: deployment/install_dependencies
+      timeout: 300
+      runas: root

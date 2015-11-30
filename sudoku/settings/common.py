@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'sudoku.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db(),
+    'default': env.db(default='sqlite:///default.sqlite'),
 }
 
 

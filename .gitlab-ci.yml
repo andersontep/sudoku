@@ -1,0 +1,10 @@
+image: python:3.5
+
+test:
+  script:
+  - export DATABASE_URL=postgres://postgres@postgres:5432/test
+  - apt-get update -qy
+  - apt-get install build-essential -qy
+  - pip install tox
+  - tox
+
