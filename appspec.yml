@@ -6,7 +6,7 @@ files:
   - source: /deployment/etc/init
     destination: /etc/init
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: deployment/install_dependencies.sh
       timeout: 300
       runas: root
