@@ -5,8 +5,8 @@ files:
     destination: /var/www/sudoku
   - source: /deployment/etc/init
     destination: /etc/init
-hooks:
-  AfterInstall:
-    - location: deployment/install_dependencies.sh
-      timeout: 300
-      runas: root
+# hooks:
+#   AfterInstall:
+#     - location: deployment/install_dependencies.sh
+#       timeout: 300
+#       runas: root
